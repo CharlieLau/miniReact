@@ -1,0 +1,26 @@
+{
+  "name": "fre-js",
+  "version": "1.0.0",
+  "description": "",
+  "main": "index.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1",
+    "dev": "rollup --config rollup.config.js --watch"
+  },
+  "keywords": [],
+  "author": "liuqingqing05",
+  "license": "ISC",
+  "devDependencies": {
+    "@babel/core": "^7.13.14",
+    "@babel/plugin-transform-runtime": "^7.13.10",
+    "@babel/preset-env": "^7.13.12",
+    "@babel/preset-react": "^7.13.13",
+    "@babel/preset-typescript": "^7.13.0",
+    "rollup": "^2.44.0",
+    "rollup-plugin-node-resolve": "^5.2.0"
+  },
+  "dependencies": {
+    "fre": "^2.0.4",
+    "rollup-plugin-babel": "^4.4.0"
+  }
+}
