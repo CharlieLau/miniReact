@@ -1,15 +1,14 @@
-
 import { Component } from "../../react/component"
 import { patchAttrs } from "../patch/attrs"
-import {renderComponent} from '../render'
+import {setComponentProps} from '../patch/attrs'
 
 export function mount(vnode, parent, refNode) {
     if (vnode.tag === 'TEXT') {
         mountText(vnode, parent)
     } else if (typeof vnode.tag === 'function') {
         const instance = createComponent(vnode)
-        setComponentProps(instance, vnode.attrs);
-        renderComponent(instance, parent, refNode);
+        setComponentProps(instance, vnode.attrs,parent)
+        vnode.instance =  instance
     } else {
         mountElement(vnode, parent, refNode)
     }
@@ -49,14 +48,6 @@ function createComponent(vnode) {
             return this.constructor(vnode.attrs)
         }
     }
-    vnode.component = instance
+    instance.key = vnode.key
     return instance
-}
-
-function setComponentProps(component, props) {
-
-    if (component.componentWillMount) {
-        component.componentWillMount()
-    }
-    component.props = props;
 }

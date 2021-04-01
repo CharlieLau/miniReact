@@ -26,7 +26,8 @@ export function reactDiff(prevChildren, nextChildren, parent) {
             let refNode = i === 0 ? prevChildren[0].length : nextChildren[i - 1].el.nextSibling;
             mount(nextChild, parent, refNode)
         } else {
-            patch(prevChildren[j], nextChild, parent)
+
+            patch(prevChildren[j], nextChild, parent )
 
             if (j < lastIndex) {
                 // 需要移动节点

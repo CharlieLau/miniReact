@@ -12,17 +12,26 @@ export function render(vnode, node) {
     }
 }
 
-
-export function renderComponent(component, node, refNode) {
+export function renderComponent(component, node) {
     const renderer = component.render()
     if (!component.base) {
-        mount(renderer, node, refNode)
+        mount(renderer, node)
+        if (component.componentDidMount) {
+            component.componentDidMount()
+        }
     } else {
-        patch(node._vnode, renderer, parent)
+        if (component.componentWillUpdate) {
+            component.componentWillUpdate()
+        }
+        let prevNode = component._vnode
+        let nextNode = renderer
+        patch(prevNode, nextNode, node)
+        if (component.componentDidUpdate) {
+            component.componentDidUpdate()
+        }
     }
-    
     component.base = node
     node._component = component
-
     node._vnode = renderer
+    component._vnode = renderer
 }
