@@ -9,8 +9,8 @@
 - [x] diff
 - [x] Class Component
 - [x] 生命周期
-- [ ] 事件机制
-- [ ] setState 异步
+- [ ] 合成事件
+- [x] setState 异步 & nextTick
 - [ ] Function Component
 - [ ] Hooks
 

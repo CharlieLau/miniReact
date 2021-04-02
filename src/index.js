@@ -23,6 +23,40 @@ import { render} from './react-dom'
 //     return <div>Welcome to  use  mini React~</div>
 // }
 
+
+class Say extends Component{
+    constructor(props){
+        super(props)
+        this.state= {
+            msg:'ヽ(*^ｰ^)人(^ｰ^*)ノ'
+        }
+    }
+    componentDidMount(){
+        setTimeout(()=>{
+            this.setState({
+                msg:'┭┮﹏┭┮'
+            },()=>{
+                console.log('finish')
+            })
+            this.setState({
+                msg:'┭┮﹏┭┮'
+            })
+            this.setState({
+                msg:'┭┮﹏┭┮'
+            })
+            this.setState({
+                msg:'┭┮﹏┭┮'
+            })
+            this.setState({
+                msg:'┭┮﹏┭┮'
+            })
+        },3000)
+    }
+    render(){
+        return <div>{this.state.msg} 啊啊啊啊 嗷嗷嗷嗷</div>
+    }
+}
+
 class Welcome  extends Component{
 
     constructor(props){
@@ -32,7 +66,11 @@ class Welcome  extends Component{
 
 
     render(){
-        return <p>Hi  <strong style={{color:'red'}}> {this.props.userName}</strong>,Welcome to use  mini React~ <button onClick={this.handleClick.bind(this)}>{this.state.count.toString()}</button></p>
+        return <p>
+                Hi  <strong style={{color:'red'}}> {this.props.userName}</strong>,Welcome to use  mini React~ 
+                <button onClick={this.handleClick.bind(this)}>{this.state.count.toString()}</button>
+                <Say></Say>
+                </p>
     }
 
     handleClick(){
@@ -84,6 +122,9 @@ class App extends Component{
             Welcome to  use  mini React~
             <Welcome userName={this.state.userName}></Welcome>
             <Welcome userName={this.state.userName}></Welcome>
+            <div>
+                <Welcome userName={this.state.userName}></Welcome>
+            </div>
             <h1>time is : <label>{new Date().toLocaleTimeString()}</label></h1>
             {this.state.count.toString()}
             <button onClick={this.handleClick.bind(this)}>+ 1</button>

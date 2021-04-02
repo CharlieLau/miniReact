@@ -1,6 +1,3 @@
-
-
-
 import { mount } from "../mount/index.js";
 import { patch } from "../patch/index.js";
 
